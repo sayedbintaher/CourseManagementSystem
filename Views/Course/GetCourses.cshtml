@@ -1,0 +1,45 @@
+﻿@model List<Course>
+
+<div class="container">
+    <div>
+        <a class="btn btn-primary mt-5" asp-area="" asp-controller="Course" asp-action="AddCourse">Add New Course</a>
+    </div>
+
+    <div class="border rounded mt-2">
+        <table id="myTable" class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Serial No</th>
+                    <th scope="col">CourseName</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    int i = 0;
+                    @foreach (var course in Model)
+                    {
+                        <tr class="table-active">
+                            <td>@(++i)</td>
+                            <td>@course.CourseName</td>
+                            <td>@course.Duration</td>
+                            <td>
+                                <a class="btn btn-warning" asp-controller="Course" asp-action="EditCourse" asp-route-id="@course.Id">Edit</a>
+                                <a class="btn btn-danger" asp-controller="Course" asp-action="DeleteCourse" asp-route-id="@course.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">No Data Found!</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

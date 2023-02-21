@@ -1,0 +1,36 @@
+﻿@model List<Batch>
+
+<div class="container">
+    <div>
+        <a class="btn btn-primary mt-5" asp-area="" asp-controller="Course" asp-action="AddCourse">Add New Batch</a>
+    </div>
+
+    <div class="border rounded mt-2">
+        <table id="myTable" class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">BatchCode</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var batch in Model)
+                {
+                        <tr class="table-active">
+                            <td>@batch.Id</td>
+                            <td>@batch.BatchCode</td>
+                            <td>@batch.Year</td>
+                            <td>
+                                <a class="btn btn-warning" asp-controller="" asp-action="" asp-route-id="@batch.Id">Edit</a>
+                                <a class="btn btn-danger" asp-controller="" asp-action="" asp-route-id="@batch.Id">Delete</a>
+                            </td>
+                        </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

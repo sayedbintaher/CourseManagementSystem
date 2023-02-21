@@ -1,0 +1,20 @@
+﻿@using SchoolManagementSystem.ViewModels.CourseVM;
+
+@model EditCourseVM;
+
+<div class="container">
+    <form method="post">
+        <input type="text" asp-for="Id" class="form-control" id="Id" hidden>
+        <div class="mb-3">
+            <label asp-for="CourseName" class="form-label">Course Name</label>
+            <input type="text" asp-for="CourseName" class="form-control" id="CourseName">
+            <span asp-validation-for="CourseName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Duration" class="form-label">Duration</label>
+            <input type="text" asp-for="Duration" class="form-control" id="Duration">
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>   
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

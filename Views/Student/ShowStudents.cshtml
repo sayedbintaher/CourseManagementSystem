@@ -1,0 +1,61 @@
+﻿@using SchoolManagementSystem.ViewModels.StudentVM;
+@model IEnumerable<ShowStudentVM>
+
+<div class="container">
+    <div class="row d-flex mt-5">
+        <div class="col-4">
+            <a class="btn btn-primary" asp-area="" asp-controller="Student" asp-action="CreateStudent">Add New Student</a>
+        </div>
+    </div>
+
+
+    <div class="border rounded mt-2">
+        <table id="myTable" class="table table-hover table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Serial No.</th>
+                    <th scope="col">FastName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">StudentId</th>
+                    <th scope="col">BatchId</th>
+                    <th scope="col">CourseId</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    int i = 0;
+
+                    @foreach (var student in Model)
+                    {
+
+                        <tr class="table-active">
+                            <td>@(++i)</td>
+                            <td>@student.FirstName</td>
+                            <td>@student.LastName</td>
+                            <td>@student.StudentId</td>
+                            <td>@student.Batch.BatchCode</td>
+                            <td>@student.Course.CourseName</td>
+                            <td>@student.Phone</td>
+                            <td>@student.Address</td>
+                            <td>
+                                <a class="btn btn-warning w-100" asp-controller="Student" asp-action="EditStudent" asp-route-id="@student.Id">Edit</a>
+                                <a class="btn btn-danger mt-2 w-100" asp-controller="Student" asp-action="DeleteStudent" asp-route-id="@student.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">No Data Found!</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

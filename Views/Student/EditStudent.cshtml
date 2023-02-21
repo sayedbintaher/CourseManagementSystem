@@ -1,0 +1,55 @@
+﻿@using SchoolManagementSystem.ViewModels.StudentVM;
+@model EditStudentVM
+
+<div class="container">
+    <form method="post" class="mt-5">
+        <div class="mb-3">
+            <label asp-for="FirstName" class="form-label">First Name </label>
+            <input type="text" asp-for="FirstName" class="form-control" id="firstName">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="LastName" class="form-label">Last Name</label>
+            <input type="text" asp-for="LastName" class="form-control" id="lastName">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="StudentId" class="form-label">StudentID</label>
+            <input type="text" asp-for="StudentId" class="form-control" id="studentId">
+            <span asp-validation-for="StudentId" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="BatchId" class="form-label">Batch</label>
+            <select type="text" asp-for="BatchId" asp-items="@Model.Batches" class="form-control">
+                <option value="">Please Select</option>
+            </select>
+            <span asp-validation-for="BatchId" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="CourseId" class="form-label">Category</label>
+            <select type="text" asp-for="CourseId" asp-items="@Model.Courses" class="form-control">
+                <option value="">Please Select</option>
+            </select>
+            <span asp-validation-for="CourseId" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Phone" class="form-label">Phone No</label>
+            <input type="text" asp-for="Phone" class="form-control" id="phoneNo">
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Address" class="form-label">Address</label>
+            <input type="text" asp-for="Address" class="form-control" id="address">
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
