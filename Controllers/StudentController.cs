@@ -19,8 +19,7 @@ namespace SchoolManagementSystem.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        public IActionResult ShowStudents()
+        public IActionResult GetStudents()
         {
             var models = _db.Students.Include(s => s.Course).Include(s => s.Batch).ToList();
             
@@ -80,7 +79,7 @@ namespace SchoolManagementSystem.Controllers
                 _db.Students.Add(student);
                 if (_db.SaveChanges() > 0)
                 {
-                    return RedirectToAction("ShowStudents");
+                    return RedirectToAction("GetStudents");
                 }
             }
 
@@ -145,7 +144,7 @@ namespace SchoolManagementSystem.Controllers
                 _db.Students.Update(student);
                 if (_db.SaveChanges() > 0)
                 {
-                    return RedirectToAction("ShowStudents");
+                    return RedirectToAction("GetStudents");
                 }
             }
             return View();
@@ -200,7 +199,7 @@ namespace SchoolManagementSystem.Controllers
             _db.Students.Remove(obj);
             if (_db.SaveChanges() > 0)
             {
-                return RedirectToAction("ShowStudents");
+                return RedirectToAction("GetStudents");
             }
 
             return View();
