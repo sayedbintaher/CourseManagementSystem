@@ -13,7 +13,7 @@ namespace SchoolManagementSystem.Controllers
     {
         private readonly DataContext _db;
 
-        public BatchController( DataContext db)
+        public BatchController(DataContext db)
         {
             _db = db;
         }
@@ -35,13 +35,13 @@ namespace SchoolManagementSystem.Controllers
             {
                 var batch = new Batch()
                 {
-                    BatchCode= model.BatchCode,
-                    Year=model.Year
+                    BatchCode = model.BatchCode,
+                    Year = model.Year
                 };
                 _db.Batches.Add(batch);
-                if(_db.SaveChanges() > 0)
+                if (_db.SaveChanges() > 0)
                 {
-                    RedirectToAction("GetBatches");
+                    return RedirectToAction("GetBatches");
                 }
             }
             return View();
