@@ -2,7 +2,7 @@
 
 <div class="container">
     <div>
-        <a class="btn btn-primary mt-5" asp-area="" asp-controller="Course" asp-action="AddCourse">Add New Batch</a>
+        <a class="btn btn-primary mt-5" asp-area="" asp-controller="Batch" asp-action="CreateBatch">Add New Batch</a>
     </div>
 
     <div class="border rounded mt-2">
@@ -24,8 +24,8 @@
                             <td>@batch.BatchCode</td>
                             <td>@batch.Year</td>
                             <td>
-                                <a class="btn btn-warning" asp-controller="" asp-action="" asp-route-id="@batch.Id">Edit</a>
-                                <a class="btn btn-danger" asp-controller="" asp-action="" asp-route-id="@batch.Id">Delete</a>
+                                <a class="btn btn-warning" asp-controller="Batch" asp-action="EditBatch" asp-route-id="@batch.Id">Edit</a>
+                                <a class="btn btn-danger" asp-controller="Batch" asp-action="DeleteBatch" asp-route-id="@batch.Id">Delete</a>
                             </td>
                         </tr>
                 }

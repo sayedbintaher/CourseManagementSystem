@@ -1,0 +1,16 @@
+﻿@using CourseManagementSystem.ViewModels.BatchVM;
+@model DeleteBatchVM
+
+<div class="container">
+    <form method="post" class="mt-5">
+        <div class="mb-3">
+            <label asp-for="BatchCode" class="form-label">Batch Code</label>
+            <input type="text" asp-for="BatchCode" class="form-control" id="BatchCode" disabled>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Year" class="form-label">Year</label>
+            <input type="text" asp-for="Year" class="form-control" id="Year" disabled>
+        </div>
+        <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
+</div>

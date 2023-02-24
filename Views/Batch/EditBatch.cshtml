@@ -1,0 +1,18 @@
+﻿@using CourseManagementSystem.ViewModels.BatchVM;
+@model EditBatchVM
+
+<div class="container">
+    <form method="post" class="mt-5">
+        <div class="mb-3">
+            <label asp-for="BatchCode" class="form-label">Batch Code</label>
+            <input type="text" asp-for="BatchCode" class="form-control" id="BatchCode">
+            <span asp-validation-for="BatchCode" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Year" class="form-label">Year</label>
+            <input type="text" asp-for="Year" class="form-control" id="Year">
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
